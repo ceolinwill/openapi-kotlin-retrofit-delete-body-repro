@@ -1,0 +1,27 @@
+openapi: 3.0.3
+info:
+  title: Repro
+  version: 1.0.0
+paths:
+  /items:
+    delete:
+      operationId: deleteItems
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeleteItemsRequest"
+      responses:
+        "204":
+          description: Deleted
+components:
+  schemas:
+    DeleteItemsRequest:
+      type: object
+      required: [ids]
+      properties:
+        ids:
+          type: array
+          items:
+            type: string
