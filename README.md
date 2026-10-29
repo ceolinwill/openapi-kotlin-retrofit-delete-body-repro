@@ -1,5 +1,7 @@
 # openapi-generator: kotlin `jvm-retrofit2` DELETE with a request body fails at runtime
 
+Reported in https://github.com/OpenAPITools/openapi-generator/issues/25454.
+
 For a DELETE operation with a `requestBody`, the `kotlin` generator with `library = jvm-retrofit2` emits `@DELETE("path")` plus an `@Body` parameter. The code compiles, but Retrofit rejects the method on the first call with `IllegalArgumentException: Non-body HTTP method cannot contain @Body.` OpenAPI 3 allows a body on DELETE, so the generated client can't call this operation at all.
 
 ## Reproduction
